@@ -6,7 +6,26 @@ using System.Threading.Tasks;
 
 namespace SpearmanCorrelation.Models
 {
-    internal class SeulBaseMapper
+    public class SeulBaseMapper
     {
+        public double Data { get; set; }
+        public double QuantidadeAlugueis { get; set; }
+        public double Hora { get; set; }
+        public double Temperatura { get; set; }
+        public double Humidade { get; set; }
+        public double VelocidadeVento { get; set; }
+        //nao tem washigton
+        public double Visibilidade { get; set; }
+        //nao tem washigton
+        public double TemperaturaDeOrvalho { get; set; }
+        //nao tem washigton
+        public double RadiacaoSolar { get; set; }
+        //nao tem washigton
+        public double Chuva { get; set; }
+        //nao tem washigton
+        public double Neve { get; set; }
+        public double Estacao { get; set; }
+        public double Feriado { get; set; }
+        public double DiaTrabalho { get; set; }        
     }
 }

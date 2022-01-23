@@ -8,7 +8,6 @@ namespace SpearmanCorrelation
 {
     public class WashingtonBaseMapper
     {
-        //public double Id { get; set; }
         public double Data { get; set; }
         public double Estacao { get; set; }
         public double Ano { get; set; }
@@ -25,9 +24,5 @@ namespace SpearmanCorrelation
         public double UsuarioTemporario { get; set; }
         public double UsuarioRegistradro { get; set; }
         public double QuantidadeAlugueis { get; set; }
-
-        ////retirar apenas teste
-        //public double idade { set; get; }
-        //public double preco { set; get; }
     }
 }
