@@ -28,7 +28,6 @@ namespace SpearmanCorrelation
             return spearman;
         }
 
-
         public static List<double> GeraListaRankeada(List<double> lista)
         {
             List<double> rank = new List<double>();

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace SpearmanCorrelation
 {
@@ -12,8 +13,8 @@ namespace SpearmanCorrelation
         static void Main()
         {
             var dados = LeitorCSV.LerCSV<WashingtonBaseMapper>(@"C:\Users\DTI Digital\Documents\tcc\bases\hour.csv");
-            
-            ComputaMatrixCorrelacaoSpearman(dados);
+
+            //ComputaMatrixCorrelacaoSpearman(dados);
             ComputaMatrixCorrelacaoPearson(dados);
 
             Console.ReadLine();
@@ -23,6 +24,7 @@ namespace SpearmanCorrelation
         {
             var listaPreparada = AjustaBaseParaOsRanksSpearman(dados);
             var quantidadePropriedadesClasse = dados.FirstOrDefault().GetType().GetProperties().Length;
+
             for (int propriedadeAnalisadaBase = 0; propriedadeAnalisadaBase < quantidadePropriedadesClasse; propriedadeAnalisadaBase++)
             {
                 PropertyInfo propriedadeBase = typeof(WashingtonBaseMapper).GetProperty(typeof(WashingtonBaseMapper).GetProperties()[propriedadeAnalisadaBase].Name);
