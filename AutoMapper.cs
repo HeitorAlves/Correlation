@@ -25,6 +25,7 @@ namespace SpearmanCorrelation
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<string[], WashingtonBaseMapper>()
+                .ForMember(p => p.DataTexto, opt => opt.MapFrom(s => s[1]))
                 .ForMember(p => p.Data, opt => opt.MapFrom(s => DateTime.Parse(s[1]).ToOADate()))
                 .ForMember(p => p.Estacao, opt => opt.MapFrom(s => s[2]))
                 .ForMember(p => p.Ano, opt => opt.MapFrom(s => s[3]))
@@ -49,6 +50,7 @@ namespace SpearmanCorrelation
         {
             var config = new MapperConfiguration(cfg => {
                 cfg.CreateMap<string[], SeulBaseMapper>()
+                .ForMember(p => p.DataTexto, opt => opt.MapFrom(s => s[0]))
                 .ForMember(p => p.Data, opt => opt.MapFrom(s => DateTime.Parse(s[0]).ToOADate()))
                 .ForMember(p => p.QuantidadeAlugueis, opt => opt.MapFrom(s =>s[1]))
                 .ForMember(p => p.Hora, opt => opt.MapFrom(s => s[2]))

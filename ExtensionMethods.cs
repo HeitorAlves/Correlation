@@ -30,7 +30,7 @@ namespace SpearmanCorrelation
             }
         }
 
-        public static void ComputaMatrixCorrelacaoPearson<T>(this List<T> listaBaseMapeada)
+        public static void ComputaMatrixCorrelacaoPearson<T>(this List<T> listaBaseMapeada, int formatoSaida = 0)
         {
             var quantidadePropriedadesClasse = listaBaseMapeada.FirstOrDefault().GetType().GetProperties().Length;
             for (int propriedadeAnalisadaBase = 0; propriedadeAnalisadaBase < quantidadePropriedadesClasse; propriedadeAnalisadaBase++)
@@ -43,7 +43,15 @@ namespace SpearmanCorrelation
                     PropertyInfo propriedadeAlvo = typeof(T).GetProperty(typeof(T).GetProperties()[propriedadeAnalisadaAlvo].Name);
                     var listaAlvo = listaBaseMapeada.Select(x => (double)propriedadeAlvo.GetValue(x)).ToList();
 
-                    Console.WriteLine($@"[{propriedadeBase.Name}]X[{propriedadeAlvo.Name}] :" + Correlacao.CorrelacaoPearson(listaBase, listaAlvo));
+                    var valor = "";
+                    var correlacao = Math.Abs(Correlacao.CorrelacaoPearson(listaBase, listaAlvo));
+                    if (correlacao < 0.10) valor = "IRRELEVANTE";
+                    if (correlacao >= 0.1 && correlacao < 0.3) valor = "FRACA";
+                    if (correlacao >= 0.3 && correlacao < 0.5) valor = "MEDIA";
+                    if (correlacao >=0.5 && correlacao <= 1) valor = "FORTE";
+
+
+                    Console.WriteLine($@"[{propriedadeBase.Name}]X[{propriedadeAlvo.Name}] :" + valor);
                 }
             }
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpearmanCorrelation.Models.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace SpearmanCorrelation
 {
-    public class WashingtonBaseMapper
+    public class WashingtonBaseMapper : IBaseModel
     {
+        public DateTime DataTexto { get; set; }
         public double Data { get; set; }
         public double Estacao { get; set; }
         public double Ano { get; set; }
